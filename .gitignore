@@ -24,3 +24,5 @@ workspace/*
 .ollama/
 models/
 *.gguf
+Modelfile.nemotron
+pull.log
