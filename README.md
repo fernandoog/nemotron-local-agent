@@ -18,6 +18,17 @@ cd nemotron-local-agent
 .\scripts\run.ps1
 ```
 
+Si `ollama pull nemotron-3-nano:4b` falla por red (timeout al CDN de Ollama), importa el GGUF oficial de Hugging Face:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+pip install -e . huggingface_hub
+python -c "from huggingface_hub import hf_hub_download; print(hf_hub_download('nvidia/NVIDIA-Nemotron-3-Nano-4B-GGUF','NVIDIA-Nemotron3-Nano-4B-Q4_K_M.gguf', local_dir='models/nemotron-4b-gguf'))"
+.\scripts\import-gguf.ps1
+.\scripts\run.ps1
+```
+
 Chat interactivo:
 
 ```text
